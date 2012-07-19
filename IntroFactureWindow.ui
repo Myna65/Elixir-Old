@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>IntroFactWindow</class>
+ <widget class="QWidget" name="IntroFactWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>848</width>
+    <height>681</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
+  <property name="cursor">
+   <cursorShape>ArrowCursor</cursorShape>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="label">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>20</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Introduction facture</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QFormLayout" name="formLayout">
+     <property name="fieldGrowthPolicy">
+      <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+     </property>
+     <item row="0" column="0">
+      <widget class="QLabel" name="nFactureLabel">
+       <property name="text">
+        <string>N° facture :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="nFactureLineEdit"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="fournisseurLabel">
+       <property name="text">
+        <string>Fournisseur :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QComboBox" name="fournisseurComboBox"/>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="dateFactureLabel">
+       <property name="text">
+        <string>Date facture :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QDateEdit" name="dateFactureDateEdit"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="rFRenceFactureLabel">
+       <property name="text">
+        <string>Référence facture :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="rFRenceFactureLineEdit"/>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="dateDChAnceLabel">
+       <property name="text">
+        <string>Date d'échéance :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QDateEdit" name="dateDChAnceDateEdit"/>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="dateDePayementLabel">
+       <property name="text">
+        <string>Date de payement :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QDateEdit" name="dateEdit"/>
+     </item>
+     <item row="6" column="1">
+      <widget class="QDoubleSpinBox" name="montantDoubleSpinBox">
+       <property name="suffix">
+        <string> €</string>
+       </property>
+       <property name="minimum">
+        <double>-1000000.000000000000000</double>
+       </property>
+       <property name="maximum">
+        <double>1000000.000000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="montantTVALabel">
+       <property name="text">
+        <string>Montant TVA :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QDoubleSpinBox" name="doubleSpinBox">
+       <property name="suffix">
+        <string> €</string>
+       </property>
+       <property name="minimum">
+        <double>-1000000.000000000000000</double>
+       </property>
+       <property name="maximum">
+        <double>1000000.000000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="statutDeLaFactureLabel">
+       <property name="text">
+        <string>Statut de la facture :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1">
+      <widget class="QComboBox" name="statutDeLaFactureComboBox">
+       <item>
+        <property name="text">
+         <string>Non payée</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Payée en caisse</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Payée par banque</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Contestée</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="9" column="0">
+      <widget class="QLabel" name="remarquesLabel">
+       <property name="text">
+        <string>Remarques :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="1">
+      <widget class="QLineEdit" name="remarquesLineEdit"/>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="montantLabel">
+       <property name="text">
+        <string>Montant total :</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="Line" name="line">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <layout class="QFormLayout" name="formLayout_2">
+         <property name="fieldGrowthPolicy">
+          <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <item row="0" column="0">
+          <widget class="QLabel" name="modLeLabel">
+           <property name="text">
+            <string>Modèle :</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="modLeLineEdit"/>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="nArticleLabel">
+           <property name="text">
+            <string>N° Article :</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="nArticleLineEdit"/>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="tailleLabel">
+           <property name="text">
+            <string>Taille :</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="tailleLineEdit"/>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="colorisLabel">
+           <property name="text">
+            <string>Coloris :</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="colorisLineEdit"/>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="prixDAchatLabel">
+           <property name="text">
+            <string>Prix d'achat :</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="prixDeVenteLabel">
+           <property name="text">
+            <string>Prix de vente</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QDoubleSpinBox" name="prixDeVenteDoubleSpinBox">
+           <property name="suffix">
+            <string> €</string>
+           </property>
+           <property name="minimum">
+            <double>-1000000.000000000000000</double>
+           </property>
+           <property name="maximum">
+            <double>1000000.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="quantitLabel">
+           <property name="text">
+            <string>Quantité</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="QSpinBox" name="quantitSpinBox">
+           <property name="suffix">
+            <string/>
+           </property>
+           <property name="prefix">
+            <string/>
+           </property>
+           <property name="minimum">
+            <number>-1000</number>
+           </property>
+           <property name="maximum">
+            <number>1000</number>
+           </property>
+           <property name="value">
+            <number>1</number>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
+           <property name="suffix">
+            <string> €</string>
+           </property>
+           <property name="minimum">
+            <double>-1000000.000000000000000</double>
+           </property>
+           <property name="value">
+            <double>0.000000000000000</double>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton">
+         <property name="text">
+          <string>Valider l'article</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>10</number>
+       </property>
+       <item>
+        <widget class="QTableView" name="tableView"/>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_3">
+         <property name="text">
+          <string>Supprimer la sélection</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QFormLayout" name="formLayout_3">
+     <item row="0" column="0">
+      <widget class="QLabel" name="sommeLabel">
+       <property name="text">
+        <string>Somme :</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QDoubleSpinBox" name="sommeDoubleSpinBox">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+       <property name="suffix">
+        <string> €</string>
+       </property>
+       <property name="minimum">
+        <double>-1000000.000000000000000</double>
+       </property>
+       <property name="maximum">
+        <double>1000000.000000000000000</double>
+       </property>
+       <property name="value">
+        <double>0.000000000000000</double>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="text">
+      <string>Valider la facture</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

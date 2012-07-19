@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Titre</string>
+  </property>
+  <property name="windowOpacity">
+   <double>1.000000000000000</double>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFichier">
+    <property name="title">
+     <string>&amp;Fichier</string>
+    </property>
+    <widget class="QMenu" name="menuR_seau">
+     <property name="title">
+      <string>&amp;Réseau</string>
+     </property>
+     <addaction name="action_teindre"/>
+     <addaction name="separator"/>
+     <addaction name="actionSyncroniser_les_bases_de_donn_es"/>
+     <addaction name="actionR_cup_rer_depuis_un_ordinateur_sp_cifique"/>
+    </widget>
+    <widget class="QMenu" name="menuBase_de_donn_es">
+     <property name="title">
+      <string>&amp;Base de données</string>
+     </property>
+     <addaction name="actionSauvegarder_la_base_de_donn_e"/>
+     <addaction name="actionRestaurer_depuis_une_sauvegarde"/>
+    </widget>
+    <addaction name="menuR_seau"/>
+    <addaction name="menuBase_de_donn_es"/>
+    <addaction name="separator"/>
+    <addaction name="actionQuitter"/>
+   </widget>
+   <widget class="QMenu" name="menuFactures">
+    <property name="title">
+     <string>Fac&amp;tures</string>
+    </property>
+    <widget class="QMenu" name="menuImprimer">
+     <property name="title">
+      <string>&amp;Imprimer</string>
+     </property>
+     <addaction name="actionListe_par_fournisseur"/>
+     <addaction name="actionListe_par_date"/>
+     <addaction name="separator"/>
+     <addaction name="actionListe_des_factures_payer"/>
+    </widget>
+    <addaction name="actionAjouter_une_facture"/>
+    <addaction name="actionAcc_der_la_liste"/>
+    <addaction name="actionRechercher"/>
+    <addaction name="separator"/>
+    <addaction name="menuImprimer"/>
+   </widget>
+   <widget class="QMenu" name="menuFournisseur">
+    <property name="title">
+     <string>F&amp;ournisseur</string>
+    </property>
+    <addaction name="actionAjouter_un_fournisseur"/>
+    <addaction name="actionAfficher_la_liste"/>
+    <addaction name="actionRechercher_2"/>
+    <addaction name="separator"/>
+    <addaction name="actionImprimer_par_ordre_alphab_tque"/>
+   </widget>
+   <widget class="QMenu" name="menuInventaire">
+    <property name="title">
+     <string>&amp;Inventaire</string>
+    </property>
+    <widget class="QMenu" name="menuImprimer_2">
+     <property name="title">
+      <string>&amp;Imprimer</string>
+     </property>
+     <addaction name="actionInventaire_complet"/>
+     <addaction name="actionInventaire_par_fournisseur"/>
+     <addaction name="separator"/>
+     <addaction name="actionInventaire_r_sum"/>
+    </widget>
+    <addaction name="actionAfficher_la_liste_2"/>
+    <addaction name="actionRechercher_3"/>
+    <addaction name="separator"/>
+    <addaction name="menuImprimer_2"/>
+   </widget>
+   <widget class="QMenu" name="menuVente">
+    <property name="title">
+     <string>&amp;Vente</string>
+    </property>
+    <addaction name="action_cran_de_vente"/>
+    <addaction name="separator"/>
+    <addaction name="actionListe_des_ventes"/>
+    <addaction name="actionRechercher_4"/>
+    <addaction name="separator"/>
+    <addaction name="actionJournal_des_ventes"/>
+    <addaction name="actionImprimer_le_journal_des_ventes"/>
+    <addaction name="actionTotal_vente"/>
+   </widget>
+   <widget class="QMenu" name="menuCaisse">
+    <property name="title">
+     <string>&amp;Caisse</string>
+    </property>
+    <addaction name="actionAjouter_un_mouvement_caisse"/>
+    <addaction name="separator"/>
+    <addaction name="actionListe_des_mouvements_caisse"/>
+    <addaction name="actionImprimer_livre_caisse"/>
+   </widget>
+   <widget class="QMenu" name="menuClients">
+    <property name="title">
+     <string>C&amp;lients</string>
+    </property>
+    <widget class="QMenu" name="menuAcomptes">
+     <property name="title">
+      <string>&amp;Acomptes</string>
+     </property>
+     <addaction name="action_Afficher_la_liste"/>
+     <addaction name="action_Rechercher"/>
+    </widget>
+    <addaction name="actionNouveau_client"/>
+    <addaction name="actionListe_des_clients"/>
+    <addaction name="actionImprimer_la_liste"/>
+    <addaction name="actionRechercher_5"/>
+    <addaction name="separator"/>
+    <addaction name="menuAcomptes"/>
+   </widget>
+   <addaction name="menuFichier"/>
+   <addaction name="menuFactures"/>
+   <addaction name="menuFournisseur"/>
+   <addaction name="menuInventaire"/>
+   <addaction name="menuCaisse"/>
+   <addaction name="menuVente"/>
+   <addaction name="menuClients"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_teindre">
+   <property name="text">
+    <string>Éteindre tous les &amp;ordinateurs</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+Q</string>
+   </property>
+  </action>
+  <action name="actionSyncroniser_les_bases_de_donn_es">
+   <property name="text">
+    <string>&amp;Syncroniser les bases de données</string>
+   </property>
+  </action>
+  <action name="actionQuitter">
+   <property name="text">
+    <string>&amp;Quitter</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionR_cup_rer_depuis_un_ordinateur_sp_cifique">
+   <property name="text">
+    <string>&amp;Récupérer la base de données depuis un ordinateur spécifique</string>
+   </property>
+  </action>
+  <action name="actionRestaurer_depuis_une_sauvegarde">
+   <property name="text">
+    <string>Restaurer depuis une sauvegarde</string>
+   </property>
+  </action>
+  <action name="actionSauvegarder_la_base_de_donn_e">
+   <property name="text">
+    <string>Sauvegarder la base de donnée</string>
+   </property>
+  </action>
+  <action name="actionAcc_der_la_liste">
+   <property name="text">
+    <string>&amp;Accéder à la liste</string>
+   </property>
+  </action>
+  <action name="actionRechercher">
+   <property name="text">
+    <string>&amp;Rechercher</string>
+   </property>
+  </action>
+  <action name="actionMode_une_fen_tre">
+   <property name="text">
+    <string>Mode une fenêtre</string>
+   </property>
+  </action>
+  <action name="actionMode_multi_fen_tre">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Mode &amp;multi-fenêtre</string>
+   </property>
+  </action>
+  <action name="actionMode_onglets">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Mode &amp;onglets</string>
+   </property>
+  </action>
+  <action name="actionListe_par_fournisseur">
+   <property name="text">
+    <string>Liste par &amp;fournisseur</string>
+   </property>
+  </action>
+  <action name="actionListe_par_date">
+   <property name="text">
+    <string>Liste par &amp;date</string>
+   </property>
+  </action>
+  <action name="actionListe_des_factures_payer">
+   <property name="text">
+    <string>Liste des factures à &amp;payer</string>
+   </property>
+  </action>
+  <action name="actionAfficher_la_liste">
+   <property name="text">
+    <string>&amp;Afficher la liste</string>
+   </property>
+  </action>
+  <action name="actionRechercher_2">
+   <property name="text">
+    <string>&amp;Rechercher</string>
+   </property>
+  </action>
+  <action name="actionImprimer_par_ordre_alphab_tque">
+   <property name="text">
+    <string>&amp;Imprimer par ordre alphabétique</string>
+   </property>
+  </action>
+  <action name="actionAfficher_la_liste_2">
+   <property name="text">
+    <string>&amp;Afficher la liste</string>
+   </property>
+  </action>
+  <action name="actionRechercher_3">
+   <property name="text">
+    <string>&amp;Rechercher</string>
+   </property>
+  </action>
+  <action name="actionInventaire_complet">
+   <property name="text">
+    <string>Inventaire &amp;complet</string>
+   </property>
+  </action>
+  <action name="actionInventaire_par_fournisseur">
+   <property name="text">
+    <string>Inventaire par &amp;fournisseur</string>
+   </property>
+  </action>
+  <action name="actionInventaire_r_sum">
+   <property name="text">
+    <string>Inventaire : &amp;résumé</string>
+   </property>
+  </action>
+  <action name="action_cran_de_vente">
+   <property name="text">
+    <string>Écran de &amp;vente</string>
+   </property>
+  </action>
+  <action name="actionListe_des_ventes">
+   <property name="text">
+    <string>&amp;Afficher la liste</string>
+   </property>
+  </action>
+  <action name="actionRechercher_4">
+   <property name="text">
+    <string>&amp;Rechercher</string>
+   </property>
+  </action>
+  <action name="actionJournal_des_ventes">
+   <property name="text">
+    <string>&amp;Journal des ventes</string>
+   </property>
+  </action>
+  <action name="actionImprimer_le_journal_des_ventes">
+   <property name="text">
+    <string>&amp;Imprimer le journal des ventes</string>
+   </property>
+  </action>
+  <action name="actionListe_des_clients">
+   <property name="text">
+    <string>Afficher la &amp;liste</string>
+   </property>
+  </action>
+  <action name="actionRechercher_5">
+   <property name="text">
+    <string>&amp;Rechercher</string>
+   </property>
+  </action>
+  <action name="actionListe_des_acomptes">
+   <property name="text">
+    <string>Liste des acomptes</string>
+   </property>
+  </action>
+  <action name="actionRechercher4">
+   <property name="text">
+    <string>Rechercher les acomptes</string>
+   </property>
+  </action>
+  <action name="action_Afficher_la_liste">
+   <property name="text">
+    <string>&amp;Afficher la liste</string>
+   </property>
+  </action>
+  <action name="action_Rechercher">
+   <property name="text">
+    <string>&amp;Rechercher</string>
+   </property>
+  </action>
+  <action name="actionAjouter_un_mouvement_caisse">
+   <property name="text">
+    <string>&amp;Ajouter un mouvement caisse</string>
+   </property>
+  </action>
+  <action name="actionListe_des_mouvements_caisse">
+   <property name="text">
+    <string>&amp;Liste des mouvements caisse</string>
+   </property>
+  </action>
+  <action name="actionImprimer_livre_caisse">
+   <property name="text">
+    <string>&amp;Imprimer livre caisse</string>
+   </property>
+  </action>
+  <action name="action_Supprimer_vente">
+   <property name="text">
+    <string>&amp;Corriger vente</string>
+   </property>
+  </action>
+  <action name="actionSupprimer_journ_e_compl_te">
+   <property name="text">
+    <string>Corriger journée &amp;complète</string>
+   </property>
+  </action>
+  <action name="actionNouveau_client">
+   <property name="text">
+    <string>&amp;Nouveau client</string>
+   </property>
+  </action>
+  <action name="actionTotal_vente">
+   <property name="text">
+    <string>Imprimer &amp;total ventes</string>
+   </property>
+  </action>
+  <action name="actionImprimer_la_liste">
+   <property name="text">
+    <string>Imprimer la liste</string>
+   </property>
+  </action>
+  <action name="actionAjouter_Facture">
+   <property name="text">
+    <string>Ajouter Facture</string>
+   </property>
+  </action>
+  <action name="actionAjouter_une_facture">
+   <property name="text">
+    <string>Ajouter une &amp;facture</string>
+   </property>
+  </action>
+  <action name="actionAjouter_un_fournisseur">
+   <property name="text">
+    <string>Ajouter un &amp;fournisseur</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

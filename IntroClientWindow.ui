@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>IntroClient</class>
+ <widget class="QDialog" name="IntroClient">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>277</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QFormLayout" name="formLayout">
+   <item row="0" column="0">
+    <widget class="QLabel" name="nomLabel">
+     <property name="text">
+      <string>Nom :</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1">
+    <widget class="QLineEdit" name="nomLineEdit"/>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="prNomLabel">
+     <property name="text">
+      <string>Prénom :</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLineEdit" name="prNomLineEdit"/>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="adresseLabel">
+     <property name="text">
+      <string>Adresse :</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QLineEdit" name="adresseLineEdit"/>
+   </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="codepostalLabel">
+     <property name="text">
+      <string>Code postal :</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QLineEdit" name="codepostalLineEdit"/>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="localitLabel">
+     <property name="text">
+      <string>Localité :</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QLineEdit" name="localitLineEdit"/>
+   </item>
+   <item row="5" column="0">
+    <widget class="QLabel" name="tLPhoneLabel">
+     <property name="text">
+      <string>Téléphone : </string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1">
+    <widget class="QLineEdit" name="tLPhoneLineEdit"/>
+   </item>
+   <item row="6" column="0">
+    <widget class="QLabel" name="faxLabel">
+     <property name="text">
+      <string>Fax :</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="1">
+    <widget class="QLineEdit" name="faxLineEdit"/>
+   </item>
+   <item row="7" column="0">
+    <widget class="QLabel" name="eMailLabel">
+     <property name="text">
+      <string>E-mail :</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="1">
+    <widget class="QLineEdit" name="eMailLineEdit"/>
+   </item>
+   <item row="8" column="0">
+    <widget class="QLabel" name="remarquesLabel">
+     <property name="text">
+      <string>Remarques :</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="1">
+    <widget class="QLineEdit" name="remarquesLineEdit"/>
+   </item>
+   <item row="9" column="1">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>Ok</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="text">
+        <string>Annuler</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>nomLineEdit</tabstop>
+  <tabstop>prNomLineEdit</tabstop>
+  <tabstop>adresseLineEdit</tabstop>
+  <tabstop>codepostalLineEdit</tabstop>
+  <tabstop>localitLineEdit</tabstop>
+  <tabstop>tLPhoneLineEdit</tabstop>
+  <tabstop>faxLineEdit</tabstop>
+  <tabstop>eMailLineEdit</tabstop>
+  <tabstop>remarquesLineEdit</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
