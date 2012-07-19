@@ -61,7 +61,7 @@ FenVente::FenVente()
 	ui->tableView->setModel(liste);
 
 	QSqlQuery req;
-	req.exec("SELECT id,Nom,Prenom, Adresse, codepostal,localite FROM Client ORDER BY Nom,Prenom,Adresse");
+	req.exec("SELECT id,nom,prenom, adresse, codepostal,localite FROM Client ORDER BY nom,prenom,adresse");
 	ui->clientComboBox->addItem("DIVERS");
 	clients.push_back(1);
 	while(req.next())
@@ -72,7 +72,7 @@ FenVente::FenVente()
 			clients.push_back(req.value(0).toInt());
 		}
 	}
-	req.exec("CALL TicNum(CURDATE())");
+	req.exec("CALL ticnum(CURDATE())");
 	req.next();
 	ui->spinBox_3->setValue(req.value(0).toInt());
 	curclient=0;
@@ -100,15 +100,12 @@ void FenVente::BoutonValider()
 		return;
 	}
 	QSqlQuery req;
-	req.prepare("INSERT INTO Ticket (client,PrixB,PrixC,PrixD,num,date) VALUES (:cli,:b,:c,:d,:num,NOW())");
+	req.prepare("INSERT INTO Ticket (client,prixb,prixc,prixd,num,date) VALUES (:cli,:b,:c,:d,:num,NOW())");
 	req.bindValue(":cli",clients[curclient]);
 	req.bindValue(":b",pay.Banque());
 	req.bindValue(":c",pay.Cash());
 	req.bindValue(":d",pay.Cheque());
 	req.bindValue(":num",ui->spinBox_3->value());
-	req.exec();
-	req.prepare("CALL Alter_solde(:solde)");
-	req.bindValue(":solde",pay.Cash());
 	req.exec();
 	req.prepare("SELECT id FROM Ticket WHERE num=:num AND DATE(date)=CURDATE() AND client=:cli");
 	req.bindValue(":cli",clients[curclient]);
@@ -121,7 +118,7 @@ void FenVente::BoutonValider()
 		QString entete=liste->item(i)->text();
 		if(entete=="A-")
 		{
-			req.prepare("SELECT id FROM Acompte WHERE client = :cli AND Valeur= :mon AND datededuit='0000-00-00'");
+			req.prepare("SELECT id FROM Acompte WHERE client = :cli AND valeur= :mon AND datededuit='0000-00-00'");
 			req.bindValue(":mon",-(liste->item(i,6)->text().toInt()));
 			req.bindValue(":cli",clients[curclient]);
 			req.exec();
@@ -135,7 +132,7 @@ void FenVente::BoutonValider()
 			}
 			else
 			{
-				QMessageBox::critical(this,"Erreur","Une dduction d'acompte n'a pu tre correctement effectue : l'acompte n'a pu tre retrouv");
+				QMessageBox::critical(this,"Erreur","Une déduction d'acompte n'a pu être correctement effectuée : l'acompte n'a pu être retrouvé");
 			}
 		}
 		else if(entete=="A+")
@@ -168,8 +165,8 @@ void FenVente::BoutonValider()
 			req.exec();
 		}
 	}
-	system(QString("%userprofile%/Gestion/ElixiP.exe 0 %1").arg(idticket).toStdString().c_str());
-	req.exec("SELECT id,Nom,Prenom, Adresse, codepostal,localite FROM Client ORDER BY Nom,Prenom,Adresse");
+	system(QDir::homePath()+QString("/Gestion/ElixiP 0 %1").arg(idticket).toStdString().c_str());
+	req.exec("SELECT id,nom,prenom, adresse, codepostal,localite FROM Client ORDER BY nom,prenom,adresse");
 	ui->clientComboBox->clear();
 	ui->clientComboBox->addItem("DIVERS");
 	clients.clear();
@@ -191,7 +188,7 @@ void FenVente::BoutonValider()
 void FenVente::BoutonCode()
 {
 	QSqlQuery req;
-	req.prepare("SELECT id,modele,Narticle,coloris,taille,PV FROM inventaire WHERE id=:id");
+	req.prepare("SELECT id,modele,narticle,coloris,taille,pv FROM Inventaire WHERE id=:id");
 	req.bindValue(":id",ui->codeSpinBox->value());
 	req.exec();
 	if(req.next())
@@ -219,7 +216,7 @@ void FenVente::BoutonCode()
 	}
 	else
 	{
-		QMessageBox::critical(this,"Aucun code","Aucun lment avec ce code trouv");
+		QMessageBox::critical(this,"Aucun code","Aucun élément avec ce code trouv");
 	}
 }
 FenVente::~FenVente()
@@ -291,7 +288,7 @@ void FenVente::AjouterAcompte()
 void FenVente::BoutonManuel()
 {
 	QSqlQuery req;
-	req.prepare("SELECT * FROM inventaire WHERE modele=:mod AND NArticle=:art AND Taille=:tai AND Coloris=:col");
+	req.prepare("SELECT * FROM inventaire WHERE modele=:mod AND narticle=:art AND taille=:tai AND coloris=:col");
 	req.bindValue(":mod",ui->aricleLineEdit->text());
 	req.bindValue(":art",ui->nArticleLineEdit->text());
 	req.bindValue(":tai",ui->colorisLineEdit->text());

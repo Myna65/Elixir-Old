@@ -30,7 +30,7 @@ FenClient::FenClient(void)
 	ui->setupUi(this);
 	ui->tableView->setModel(&model);
 
-    model.setTable("client");
+    model.setTable("Client");
 	model.setSort(1,Qt::AscendingOrder);
 	model.select();
 

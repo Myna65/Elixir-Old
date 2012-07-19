@@ -38,7 +38,7 @@ FenIntroClient::~FenIntroClient(void)
 void FenIntroClient::Accept()
 {
 	QSqlQuery req;
-	req.prepare("INSERT INTO Client (Nom,Prenom,Adresse,codepostal,localite,tel,fax,courriel,remarques) VALUES (:nom,:pre,:adr,:cod,:loc,:tel,:fax,:cou,:rem)");
+	req.prepare("INSERT INTO Client (nom,prenom,adresse,codepostal,localite,tel,fax,courriel,remarques) VALUES (:nom,:pre,:adr,:cod,:loc,:tel,:fax,:cou,:rem)");
 	req.bindValue(":nom",ui->nomLineEdit->text());
 	req.bindValue(":pre",ui->prNomLineEdit->text());
 	req.bindValue(":adr",ui->adresseLineEdit->text());

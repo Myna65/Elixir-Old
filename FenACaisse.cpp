@@ -36,7 +36,7 @@ FenACaisse::~FenACaisse()
 void FenACaisse::validate()
 {
 	QSqlQuery req;
-	req.prepare("INSERT INTO Caisse (date,Montant,Nom) VALUES (:date,:mon,:nom)");
+	req.prepare("INSERT INTO Caisse (date,montant,nom) VALUES (:date,:mon,:nom)");
 	req.bindValue(":date",ui->dateDateEdit->date());
 	req.bindValue(":nom",ui->dNominationLineEdit->text());
 	double montant=ui->montantDoubleSpinBox->value();

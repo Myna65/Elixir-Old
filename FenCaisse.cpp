@@ -28,10 +28,9 @@ FenCaisse::FenCaisse()
 	ui = new Ui::CaisseWindow();
 	ui->setupUi(this);
 	QSqlQuery req;
-	req.exec("CALL CalculSolde(CURDATE())");
+	req.exec("CALL calculcolde(CURDATE())");
 	if(!req.next())
 	{
-		QMessageBox::critical(this,"Erreur","Dfaillance gnrale du systme.<br/>Contacter une personne responsable");
 		return;
 	}
 	ui->doubleSpinBox->setValue(req.value(0).toDouble());

@@ -89,7 +89,7 @@ void FenPrincipale::ImprimerFournisseur()
 		tableFormat.setBorderStyle(QTextFrameFormat::BorderStyle_None);
 
 		QSqlQuery req;
-		req.exec("SELECT COUNT(*) FROM Fournisseur WHERE Supprime=false");
+		req.exec("SELECT COUNT(*) FROM Fournisseur WHERE supprime=false");
 		int count=0;
 		if(req.next())
 		{
@@ -265,7 +265,7 @@ void FenPrincipale::ImprimerJournalVente()
 		QTextTableCell cell;  
 		QTextCursor cellCursor;
 
-		req.prepare("SELECT num,DATE_FORMAT(date, '%d/%m/%Y %H:%i:%s'),PrixC,prixB,PrixD,Nom FROM Client,Ticket WHERE client.id=client AND DATE(date)>=:date1 AND DATE(date)<=:date2  ORDER BY DATE(date),num");
+		req.prepare("SELECT num,DATE_FORMAT(date, '%d/%m/%Y %H:%i:%s'),prixc,prixb,prixd,Nom FROM Client,Ticket WHERE client.id=client AND DATE(date)>=:date1 AND DATE(date)<=:date2  ORDER BY DATE(date),num");
 		req.bindValue(":date1",fen.PreDate());
 		req.bindValue(":date2",fen.SecDate());
 		req.exec();
@@ -338,12 +338,12 @@ void FenPrincipale::ImprimerTotalJournalVente()
 		}
 		else
 		{
-			QMessageBox::critical(0,"Erreur","Aucun ticket  imprimer trouv");
+			QMessageBox::critical(0,"Erreur","Aucun ticket à imprimer trouvé");
 			return;
 		}
 		if(count==0)
 		{
-			QMessageBox::critical(0,"Erreur","Aucun ticket  imprimer trouv");
+			QMessageBox::critical(0,"Erreur","Aucun ticket à imprimer trouvé");
 			return;
 		}
 		QTextTable * tableau = cursor.insertTable(count+2, 6, tableFormat);
@@ -359,7 +359,7 @@ void FenPrincipale::ImprimerTotalJournalVente()
 		QTextCharFormat format_cellule;  
 		format_cellule.setFontPointSize(8);
 
-		QString titres[] = {"Date"," Total caisse","Total banque","Total bons/chques","Total gnral"};
+		QString titres[] = {"Date"," Total caisse","Total banque","Total bons/chêques","Total général"};
 		for(int i=0;i<5;i++)
 		{
 			QTextTableCell titre = tableau->cellAt(0,i);
@@ -370,7 +370,7 @@ void FenPrincipale::ImprimerTotalJournalVente()
 		QTextTableCell cell;
 		QTextCursor cellCursor;
 
-		req.prepare("SELECT date,PrixC,prixB,PrixD FROM Ticket WHERE DATE(date)>=:date1 AND DATE(date)<=:date2 ORDER BY date,num");
+		req.prepare("SELECT date,prixc,prixb,prixd FROM Ticket WHERE DATE(date)>=:date1 AND DATE(date)<=:date2 ORDER BY date,num");
 		req.bindValue(":date1",fen.PreDate());
 		req.bindValue(":date2",fen.SecDate());
 		req.exec();
@@ -470,7 +470,7 @@ void FenPrincipale::ImprimerJournalCaisse()
 		int count=0;
 
 		QSqlQuery req;
-		req.prepare("SELECT COUNT(*) FROM Ticket WHERE DATE(date)>=:date1 AND DATE(date)<=:date2 AND PrixC!=0");
+		req.prepare("SELECT COUNT(*) FROM Ticket WHERE DATE(date)>=:date1 AND DATE(date)<=:date2 AND prixc!=0");
 		req.bindValue(":date1",fen.PreDate());
 		req.bindValue(":date2",fen.SecDate());
 		req.exec();
@@ -478,7 +478,7 @@ void FenPrincipale::ImprimerJournalCaisse()
 		{
 			count+=req.value(0).toInt();
 		}
-		req.prepare("SELECT COUNT(*) FROM Facture WHERE DATE(date)>=:date1 AND DATE(date)<=:date2 AND Statut=2");
+		req.prepare("SELECT COUNT(*) FROM Facture WHERE DATE(date)>=:date1 AND DATE(date)<=:date2 AND statut=2");
 		req.bindValue(":date1",fen.PreDate());
 		req.bindValue(":date2",fen.SecDate());
 		req.exec();
@@ -518,7 +518,7 @@ void FenPrincipale::ImprimerJournalCaisse()
 		QTextTableCell cell;
 		QTextCursor cellCursor;
 
-		req.prepare("CALL CalculSolde(:date)");
+		req.prepare("CALL calculsolde(:date)");
 		req.bindValue(":date",fen.PreDate().addDays(-1));
 		req.exec();
 		double solde;
@@ -538,7 +538,7 @@ void FenPrincipale::ImprimerJournalCaisse()
 		int co=2;
 		while(date1<=date2)
 		{
-			req.prepare("SELECT num,PrixC FROM Ticket WHERE DATE(date)=:date AND PrixC!=0");
+			req.prepare("SELECT num,prixc FROM Ticket WHERE DATE(date)=:date AND prixc!=0");
 			req.bindValue(":date",date1);
 			req.exec();
 			while(req.next())
@@ -557,7 +557,7 @@ void FenPrincipale::ImprimerJournalCaisse()
 				cellCursor.insertText(QString::number(solde+=req.value(1).toDouble(),'f',2),format_cellule);
 				co++;
 			}
-			req.prepare("SELECT Montant,nbdoc FROM Facture WHERE datepai=:date AND Statut=2");
+			req.prepare("SELECT montant,nbdoc FROM Facture WHERE datepai=:date AND statut=2");
 			req.bindValue(":date",date1);
 			req.exec();
 			while(req.next())
@@ -576,7 +576,7 @@ void FenPrincipale::ImprimerJournalCaisse()
 				cellCursor.insertText(QString::number(solde-=req.value(0).toDouble(),'f',2),format_cellule);
 				co++;
 			}
-			req.prepare("SELECT Montant,Nom FROM caisse WHERE DATE(date)=:date");
+			req.prepare("SELECT montant,nom FROM Caisse WHERE DATE(date)=:date");
 			req.bindValue(":date",date1);
 			req.exec();
 			while(req.next())
@@ -681,7 +681,7 @@ void FenPrincipale::ImprimerClient()
 		QTextTableCell cell;
 		QTextCursor cellCursor;
 		int co=1;
-		req.exec("SELECT Nom,Prenom,Adresse,codepostal,Localite FROM Client ORDER BY Nom,Prenom,Adresse");
+		req.exec("SELECT nom,prenom,adresse,codepostal,localite FROM Client ORDER BY nom,prenom,adresse");
 		while(req.next())
 		{
 			for(int i=0;i<5;i++)

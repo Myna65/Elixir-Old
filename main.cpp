@@ -37,7 +37,7 @@ int main(int argc, char* argv[])
     QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
 
     db.setHostName("127.0.0.1");
-    db.setDatabaseName("bm");
+    db.setDatabaseName("Elixir");
     db.setUserName("user");
     db.setPassword("");
 	if(!db.open())
