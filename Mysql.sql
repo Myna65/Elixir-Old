@@ -72,7 +72,7 @@ CREATE TABLE `Client` (
   `prenom` varchar(255) DEFAULT '',
   `civilite` int(1) DEFAULT '0',
   `adresse` varchar(255) DEFAULT '',
-  `dodepostal` varchar(255) DEFAULT '',
+  `codepostal` varchar(255) DEFAULT '',
   `localite` varchar(255) DEFAULT '',
   `tel` varchar(255) DEFAULT '',
   `remarques` varchar(255) DEFAULT '',
