@@ -385,3 +385,4 @@ DELIMITER ;
 -- Dump completed on 2012-07-19 17:08:55
 
 GRANT ALL PRIVILEGES ON Elixir.* TO Elixir_user@localhost IDENTIFIED BY '';
+INSERT INTO Client (Nom) VALUES ('Divers');
