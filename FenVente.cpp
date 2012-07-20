@@ -165,7 +165,7 @@ void FenVente::BoutonValider()
 			req.exec();
 		}
 	}
-	system(QDir::homePath()+QString("/Gestion/ElixiP 0 %1").arg(idticket).toStdString().c_str());
+	system((QDir::homePath()+QString("/Gestion/ElixiP 0 %1").arg(idticket)).toStdString().c_str());
 	req.exec("SELECT id,nom,prenom, adresse, codepostal,localite FROM Client ORDER BY nom,prenom,adresse");
 	ui->clientComboBox->clear();
 	ui->clientComboBox->addItem("DIVERS");
