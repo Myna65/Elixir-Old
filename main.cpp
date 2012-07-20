@@ -27,7 +27,6 @@
 #include <QtSql/QtSql>
 #include <QtGui/QtGui>
 #include "FenPrincipale.h"
-#include "FenSQL.h"
 
 int main(int argc, char* argv[])
 {

@@ -21,7 +21,6 @@ HEADERS += FenIntroClient.h \
            FenJournalVente.h \
            FenPayement.h \
            FenPrincipale.h \
-           FenSQL.h \
            FenVente.h \
            FenCaisse.h \
                    FenACaisse.h \
@@ -43,7 +42,6 @@ SOURCES += FenIntroClient.cpp \
            FenJournalVente.cpp \
            FenPayement.cpp \
            FenPrincipale.cpp \
-           FenSQL.cpp \
            FenVente.cpp \
            main.cpp \
                    FenCaisse.cpp \
