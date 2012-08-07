@@ -28,7 +28,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>27</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
@@ -115,6 +115,7 @@
     <addaction name="actionJournal_des_ventes"/>
     <addaction name="actionImprimer_le_journal_des_ventes"/>
     <addaction name="actionTotal_vente"/>
+    <addaction name="actionImpression_centralis_e"/>
    </widget>
    <widget class="QMenu" name="menuCaisse">
     <property name="title">
@@ -385,6 +386,11 @@
   <action name="actionAjouter_un_fournisseur">
    <property name="text">
     <string>Ajouter un &amp;fournisseur</string>
+   </property>
+  </action>
+  <action name="actionImpression_centralis_e">
+   <property name="text">
+    <string>Impression centralisée</string>
    </property>
   </action>
  </widget>

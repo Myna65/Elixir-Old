@@ -30,6 +30,7 @@
 #include "FenACaisse.h"
 #include "FenClient.h"
 #include "FenIntroFacture.h"
+#include "FenImpression.h"
 #include <QtGui/QtGui>
 #include <QtSql/QtSql>
 
@@ -50,6 +51,7 @@ FenPrincipale::FenPrincipale(QWidget *parent) : QMainWindow(parent) , ui(new Ui:
 	connect(ui->actionListe_des_clients,SIGNAL(triggered()),this,SLOT(OuvrirClient()));
 	connect(ui->actionImprimer_la_liste,SIGNAL(triggered()),this,SLOT(ImprimerClient()));
 	connect(ui->actionAjouter_une_facture,SIGNAL(triggered()),this,SLOT(OuvrirIntroFacture()));
+    connect(ui->actionImpression_centralis_e,SIGNAL(triggered()),this,SLOT(ImprimerCentral()));
 }
 void FenPrincipale::ImprimerFournisseur()
 {
@@ -698,4 +700,9 @@ void FenPrincipale::ImprimerClient()
 void FenPrincipale::OuvrirIntroFacture()
 {
 	SetWidget(new FenIntroFacture());
+}
+void FenPrincipale::ImprimerCentral()
+{
+    DialogImpression d;
+    d.exec();
 }

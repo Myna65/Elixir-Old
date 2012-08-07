@@ -47,6 +47,7 @@ private slots:
 	void OuvrirClient();
 	void OuvrirIntroFacture();
 	void ImprimerClient();
+    void ImprimerCentral();
 private:
 	void SetWidget(QWidget* widget);
 	Ui::MainWindow *ui;
