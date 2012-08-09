@@ -390,7 +390,7 @@
   </action>
   <action name="actionImpression_centralis_e">
    <property name="text">
-    <string>Impression centralisée</string>
+    <string>Impression &amp;centralisée</string>
    </property>
   </action>
  </widget>

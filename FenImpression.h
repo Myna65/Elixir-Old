@@ -1,5 +1,5 @@
-#ifndef DIALOGIMPRESSION_H
-#define DIALOGIMPRESSION_H
+#ifndef FenImpression_H
+#define FenImpression_H
 
 #include <QDialog>
 
@@ -7,16 +7,19 @@ namespace Ui {
 class DialogImpression;
 }
 
-class DialogImpression : public QDialog
+class FenImpression : public QDialog
 {
     Q_OBJECT
     
 public:
-    explicit DialogImpression(QWidget *parent = 0);
-    ~DialogImpression();
+    explicit FenImpression(QWidget *parent = 0);
+    ~FenImpression();
     
 private:
     Ui::DialogImpression *ui;
+
+public slots:
+    void imprimer();
 };
 
-#endif // DIALOGIMPRESSION_H
+#endif // FenImpression_H

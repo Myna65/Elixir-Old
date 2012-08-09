@@ -703,6 +703,6 @@ void FenPrincipale::OuvrirIntroFacture()
 }
 void FenPrincipale::ImprimerCentral()
 {
-    DialogImpression d;
+    FenImpression d;
     d.exec();
 }
