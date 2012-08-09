@@ -42,6 +42,12 @@ FenImpression::FenImpression(QWidget *parent) :
     ui->dateEdit->setDate(QDate::currentDate());
     ui->dateEdit_2->setDate(QDate::currentDate());
     connect(ui->pushButton,SIGNAL(clicked()),this,SLOT(imprimer()));
+    connect(ui->checkBox_5,SIGNAL(clicked()),this,SLOT(toupdate()));
+    connect(ui->checkBox_6,SIGNAL(clicked()),this,SLOT(toupdate()));
+    connect(ui->checkBox_7,SIGNAL(clicked()),this,SLOT(toupdate()));
+    connect(ui->checkBox_8,SIGNAL(clicked()),this,SLOT(toupdate()));
+    connect(ui->checkBox_9,SIGNAL(clicked()),this,SLOT(toupdate()));
+    toupdate();
 }
 
 FenImpression::~FenImpression()
@@ -99,5 +105,42 @@ void FenImpression::imprimer()
         opt.recap.actif=true;
         opt.recap.totaux.actif=true;
         opt.recap.totaux.caisse=ui->checkBox_13->isChecked();
+    }
+}
+void FenImpression::toupdate()
+{
+    if(ui->checkBox_9->isChecked())
+    {
+        ui->groupBox->setEnabled(false);
+        ui->groupBox_4->setEnabled(false);
+        ui->checkBox_11->setEnabled(false);
+        ui->checkBox_12->setEnabled(false);
+        ui->checkBox_16->setEnabled(false);
+    }
+    else
+    {
+        ui->groupBox->setEnabled(true);
+        ui->groupBox_4->setEnabled(true);
+        ui->checkBox_11->setEnabled(true);
+        ui->checkBox_12->setEnabled(true);
+        ui->checkBox_16->setEnabled(true);
+    }
+    if((ui->checkBox_5->isChecked()==false)&&(ui->checkBox_6->isChecked()==false)&&(ui->checkBox_7->isChecked()==false)&&(ui->checkBox_8->isChecked()==false))
+    {
+        ui->checkBox_13->setEnabled(false);
+    }
+    else
+    {
+        ui->checkBox_13->setEnabled(true);
+    }
+    if((ui->checkBox_5->isChecked()==false)&&(ui->checkBox_6->isChecked()==false)&&(ui->checkBox_7->isChecked()==false)&&(ui->checkBox_8->isChecked()==false)&&(ui->checkBox_9->isChecked()))
+    {
+        ui->pushButton->setEnabled(false);
+        ui->checkBox_10->setEnabled(false);
+    }
+    else
+    {
+        ui->pushButton->setEnabled(true);
+        ui->checkBox_10->setEnabled(true);
     }
 }

@@ -20,6 +20,7 @@ private:
 
 public slots:
     void imprimer();
+    void toupdate();
 };
 
 #endif // FenImpression_H
