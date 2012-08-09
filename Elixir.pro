@@ -34,7 +34,6 @@ FORMS += ImpJournalVente.ui \
          MainWindow.ui \
          PayementWindow.ui \
          VenteWindow.ui \
-         WinSQL.ui \
                  CaisseWindow.ui \
                  ACaisseWindow.ui \
 		 ClientWindow.ui \
