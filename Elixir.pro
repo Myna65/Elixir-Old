@@ -25,7 +25,8 @@ HEADERS += FenIntroClient.h \
            FenCaisse.h \
                    FenACaisse.h \
                    FenClient.h \
-		   FenIntroFacture.h
+		   FenIntroFacture.h \
+    FenSqlOptions.h
 FORMS += ImpJournalVente.ui \
          IntroClientWindow.ui \
                  IntroFactureWindow.ui \
@@ -36,7 +37,8 @@ FORMS += ImpJournalVente.ui \
          WinSQL.ui \
                  CaisseWindow.ui \
                  ACaisseWindow.ui \
-		 ClientWindow.ui
+		 ClientWindow.ui \
+    FenSqlOptions.ui
 SOURCES += FenIntroClient.cpp \
            FenIntrodate.cpp \
            FenJournalVente.cpp \
@@ -47,4 +49,5 @@ SOURCES += FenIntroClient.cpp \
                    FenCaisse.cpp \
                    FenACaisse.cpp \
                    FenClient.cpp \
-		   FenIntroFacture.cpp
+		   FenIntroFacture.cpp \
+    FenSqlOptions.cpp
